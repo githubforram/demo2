@@ -9,12 +9,14 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http:/
 <groupId>com.example</groupId>
 <artifactId>demo2</artifactId>
 <version>1.0-SNAPSHOT</version>
-<packaging>pom</packaging>
-<properties>
-        <java.version>1.6</java.version>
-</properties>
+<packaging>jar</packaging>
 <dependencies>
-
+<dependency>
+    <groupId>com.h2database</groupId>
+    <artifactId>h2</artifactId>
+    <version>1.4.200</version>
+    <scope>runtime</scope>
+</dependency>
 <dependency>
     <groupId>org.springframework</groupId>
     <artifactId>spring-beans</artifactId>
