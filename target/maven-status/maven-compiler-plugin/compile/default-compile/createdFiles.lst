@@ -1,0 +1,6 @@
+com/example/demo2/Demo2Application.class
+com/example/demo2/service/Service.class
+com/example/demo2/controller/Controller.class
+com/example/demo2/configure/DBCreate.class
+com/example/demo2/repository/Repository.class
+com/example/demo2/pojo/Project.class
