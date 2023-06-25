@@ -1,0 +1,42 @@
+pipeline {
+    agent any
+
+    tools {
+  maven 'm1'
+}
+stages {
+
+  stage('build') {
+    steps {
+     sh 'mvn clean install'
+    }
+  }
+
+  stage('test') {
+    steps {
+      sh 'mvn test'
+    }
+
+    post {
+      always {
+            archiveArtifacts artifacts: 'target/**.jar', followSymlinks: false
+            junit 'target/surefire-reports/*.*xml'
+      }
+    }
+  }
+stage('Debug') {
+            steps {
+                // Print the contents of the target directory
+                sh 'ls -l /home/pearl/projectmaven/demo2/target'
+                
+                // Check the file permissions of the jar file
+                sh 'stat -c "%a %n" /home/pearl/projectmaven/demo2/target/demo1-0.0.1-SNAPSHOT.jar'
+            }
+        }
+  stage('run') {
+    steps {
+        sh 'java -jar /home/pearl/projectmaven/demo2/target/demo1-0.0.1-SNAPSHOT.jar'
+    }
+}
+}
+}
